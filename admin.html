@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wilscom Admin - Post Vacancy</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+      // Replace these with your actual Project URL and Anon Key from Supabase Settings
+      const _supabaseUrl = "https://axcjvzdopiohpglhwaly.supabase.co";
+      const _supabaseKey = "sb_publishable_51j0an2buWkixxbj0JTr3A_ppjaQsYJ";
+      const supabase = supabase.createClient(_supabaseUrl, _supabaseKey);
+    </script>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+      .admin-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-top: 5px solid #002d72;
+      }
+      h2 {
+        color: #002d72;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      .btn-post {
+        background: #002d72;
+        color: white;
+        border: none;
+        padding: 15px;
+        width: 100%;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .btn-post:hover {
+        background: #ffcc00;
+        color: #002d72;
+      }
+      #status {
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-card">
+      <h2>Post a New Job Vacancy</h2>
+      <form id="jobForm">
+        <input
+          type="text"
+          id="title"
+          placeholder="Job Title (e.g. Armed Guard)"
+          required
+        />
+        <input
+          type="text"
+          id="location"
+          placeholder="Location (e.g. Monrovia)"
+          required
+        />
+        <textarea
+          id="description"
+          placeholder="Job Description & Requirements"
+          rows="5"
+          required
+        ></textarea>
+        <button type="submit" class="btn-post">Publish Vacancy</button>
+      </form>
+      <div id="status"></div>
+      <hr style="margin: 30px 0" />
+      <a href="index.html" style="color: #666; text-decoration: none"
+        >← Back to Website</a
+      >
+    </div>
+
+    <script>
+      const jobForm = document.getElementById("jobForm");
+      const status = document.getElementById("status");
+
+      jobForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        status.innerText = "Publishing...";
+
+        const title = document.getElementById("title").value;
+        const location = document.getElementById("location").value;
+        const description = document.getElementById("description").value;
+
+        const { data, error } = await supabase
+          .from("jobs")
+          .insert([{ title, location, description, is_active: true }]);
+
+        if (error) {
+          status.innerText = "Error: " + error.message;
+          status.style.color = "red";
+        } else {
+          status.innerText = "Success! Job is now live on the website.";
+          status.style.color = "green";
+          jobForm.reset();
+        }
+      });
+    </script>
+  </body>
+</html>
