@@ -8,6 +8,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -559,18 +561,15 @@
       }
     </style>
   </head>
-  <body onload="initMap()">
-    <a href="tel:+123456789" class="emergency-btn"
-      ><i class="fas fa-phone-alt"></i
-    ></a>
-    <div id="chat-trigger" onclick="toggleChat()">
+  <body>
+    <!-- <div id="chat-trigger" onclick="toggleChat()">
       <i class="fas fa-comments"></i>
-    </div>
+    </div> -->
 
-    <div id="chat-widget">
+    <!-- <div id="chat-widget">
       <div class="chat-header">
-        <span>Wilscom Dispatch</span
-        ><i
+        <span>Wilscom Dispatch</span>
+        <i
           class="fas fa-times"
           onclick="toggleChat()"
           style="cursor: pointer"
@@ -595,7 +594,7 @@
           Send
         </button>
       </div>
-    </div>
+    </div> -->
 
     <header>
       <nav class="navbar">
@@ -609,9 +608,10 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#about us">About Us</a></li>
+          <li><a href="#about-us">About Us</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#team">Team</a></li>
+          <li><a href="#careers">Careers</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="burger" onclick="toggleMobileNav()">
@@ -620,14 +620,16 @@
       </nav>
     </header>
 
-    <section id="home" class="hero">
-      <video autoplay muted loop playsinline id="hero-video">
-        <source
-          src="https://assets.mixkit.co/videos/preview/mixkit-security-camera-moving-and-recording-2804-large.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="video-overlay"></div>
+    <section
+      id="home"
+      class="hero"
+      style="
+        background:
+          linear-gradient(rgba(13, 44, 107, 0.75), rgba(13, 44, 107, 0.75)),
+          url(&quot;https://res.cloudinary.com/dqfcitcay/image/upload/v1775049402/wils1_qs8fff.jpg&quot;)
+            center/cover no-repeat;
+      "
+    >
       <div class="hero-content">
         <p>Vigilance | Elite Protection | Justice For All</p>
         <br />
@@ -658,7 +660,7 @@
       </div>
     </section>
 
-    <section id="about us">
+    <section id="about-us">
       <h2>Who We Are</h2>
 
       <div class="about-content">
@@ -847,25 +849,47 @@
       <div class="team-grid">
         <div class="member">
           <img
-            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775049401/wils2_xyefve.jpg"
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775487551/8398b0c2-c411-4a46-b4cc-206e2359c813_wdapts.jpg"
           />
           <div class="member-info">
-            <h3></h3>
+            <h3>Gyude Wilson</h3>
             <p>CEO and Director</p>
           </div>
         </div>
         <div class="member">
-          <img src="" />
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775474698/d6a358d6-3fe4-41e5-8082-40dcb21534a3_kokwpx.jpg"
+          />
           <div class="member-info">
             <h3>Nelly G. Steven</h3>
-            <p>HR</p>
+            <p>Director General</p>
           </div>
         </div>
         <div class="member">
-          <img src="" />
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775474697/b28e2d5c-941d-4d3e-b801-78e531f84d22_t77cwb.jpg"
+          />
           <div class="member-info">
-            <h3>"Alvin Blamo"</h3>
-            <p></p>
+            <h3>Alvin F. Blamo</h3>
+            <p>Director of Operations</p>
+          </div>
+        </div>
+        <div class="member">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775487399/9053e632-68e0-4f8b-872f-0cd23cbd82c6_zvi9yk.jpg"
+          />
+          <div class="member-info">
+            <h3>Marjean D. Eddie</h3>
+            <p>Administrative Manager</p>
+          </div>
+        </div>
+        <div class="member">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775487398/8a5e9e39-e971-4a83-87f6-9a9f750dba9e_bsxksc.jpg"
+          />
+          <div class="member-info">
+            <h3>Fanta Kaba</h3>
+            <p>General Supervisor</p>
           </div>
         </div>
       </div>
@@ -877,39 +901,62 @@
         Locate our secure client zones and operational hubs across the region.
       </p>
       <div id="map"></div>
+      <div style="text-align: center; margin-top: 20px">
+        <button
+          class="btn"
+          onclick="refreshMapMarkers()"
+          style="background: var(--navy); color: var(--white)"
+        >
+          Refresh Locations
+        </button>
+      </div>
+    </section>
+
+    <section id="careers">
+      <h2>Join Our Team</h2>
+      <p>
+        Explore exciting career opportunities at Wilscom Security Service. We're
+        always looking for dedicated professionals to join our mission of
+        providing top-tier security solutions.
+      </p>
+      <div id="jobs-list" style="margin-top: 30px">
+        <!-- Jobs will be loaded here -->
+      </div>
+      <div style="text-align: center; margin-top: 30px">
+        <button
+          class="btn"
+          onclick="refreshJobs()"
+          style="background: var(--navy); color: var(--white)"
+        >
+          Refresh Job Listings
+        </button>
+      </div>
     </section>
 
     <section id="contact">
-      <h2>Secure Inquiry</h2>
-      <form
-        style="
-          max-width: 600px;
-          margin: 0 auto;
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-        "
-      >
-        <input
-          type="text"
-          placeholder="Full Name"
-          style="padding: 15px; border: 1px solid #ccc; border-radius: 5px"
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          style="padding: 15px; border: 1px solid #ccc; border-radius: 5px"
-          required
-        />
-        <textarea
-          id="contactMsg"
-          rows="5"
-          placeholder="Details of your request..."
-          style="padding: 15px; border: 1px solid #ccc; border-radius: 5px"
-        ></textarea>
-        <button type="submit" class="btn">Send Encrypted Inquiry</button>
-      </form>
+      <h2>Contact Wilscom</h2>
+      <p>
+        Reach out for security consultation, emergency response, or corporate
+        protection services.
+      </p>
+      <div class="grid" style="gap: 20px; margin-top: 30px">
+        <div class="card">
+          <h3>Phone</h3>
+          <p><a href="tel:+123456789">+1 (234) 567-89</a></p>
+        </div>
+        <div class="card">
+          <h3>Email</h3>
+          <p>
+            <a href="mailto:info@wilscomsecurity.com"
+              >info@wilscomsecurity.com</a
+            >
+          </p>
+        </div>
+        <div class="card">
+          <h3>Office</h3>
+          <p>Monrovia, Liberia</p>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -923,7 +970,13 @@
     <script>
       function toggleChat() {
         const chat = document.getElementById("chat-widget");
-        chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+        const isVisible = chat.style.display === "flex";
+        chat.style.display = isVisible ? "none" : "flex";
+
+        if (!isVisible) {
+          // Chat is now open, load messages
+          fetchNewMessages();
+        }
       }
 
       function toggleMobileNav() {
@@ -946,46 +999,455 @@
       function sendChat() {
         const input = document.getElementById("user-msg");
         const content = document.getElementById("chat-content");
-        if (input.value.trim() !== "") {
-          content.innerHTML += `<p style="text-align:right; margin-bottom:10px;"><b>You:</b> ${input.value}</p>`;
+        const message = input.value.trim();
+        if (message !== "") {
+          // Display user's message immediately
+          content.innerHTML += `<p style="text-align:right; margin-bottom:10px;"><b>You:</b> ${message}</p>`;
           input.value = "";
-          setTimeout(() => {
-            content.innerHTML += `<p style="background:#eee; padding:8px; border-radius:5px; margin-bottom:10px;">Understood. Connecting to Dispatch...</p>`;
-            content.scrollTop = content.scrollHeight;
-          }, 800);
+          content.scrollTop = content.scrollHeight;
+
+          // Send to Supabase
+          sendMessageToSupabase(message);
+        }
+      }
+
+      async function sendMessageToSupabase(message) {
+        if (!supabaseClient) {
+          console.error("Supabase client not initialized");
+          return;
+        }
+
+        try {
+          const { data, error } = await supabaseClient
+            .from("messages")
+            .insert([
+              {
+                user_name: "User",
+                message_body: message,
+                is_from_admin: false,
+              },
+            ])
+            .select();
+
+          if (error) {
+            console.error("Error sending message:", error.message);
+          } else {
+            console.log("Message sent:", data);
+          }
+        } catch (error) {
+          console.error("Send message error:", error);
+        }
+      }
+
+      function clearChat() {
+        const content = document.getElementById("chat-content");
+        content.innerHTML =
+          '<p style="background: #eee; padding: 8px; border-radius: 5px; margin-bottom: 10px;">Chat cleared. Hello. How can Wilscom secure your premises today?</p>';
+        content.scrollTop = content.scrollHeight;
+      }
+
+      // Poll for new messages every 5 seconds
+      setInterval(fetchNewMessages, 5000);
+
+      async function fetchNewMessages() {
+        if (!supabaseClient) return;
+
+        const chatWidget = document.getElementById("chat-widget");
+        if (chatWidget.style.display === "none") return; // Only fetch if chat is open
+
+        try {
+          const { data, error } = await supabaseClient
+            .from("messages")
+            .select("user_name, message_body, is_from_admin, created_at")
+            .order("created_at", { ascending: true });
+
+          if (error) {
+            console.error("Error fetching messages:", error.message);
+            return;
+          }
+
+          updateChatContent(data);
+        } catch (error) {
+          console.error("Fetch messages error:", error);
+        }
+      }
+
+      function updateChatContent(messages) {
+        const content = document.getElementById("chat-content");
+        content.innerHTML = ""; // Clear and rebuild
+
+        messages.forEach((msg) => {
+          const alignment = msg.is_from_admin ? "left" : "right";
+          const bgColor = msg.is_from_admin ? "#eee" : "#007bff";
+          const textColor = msg.is_from_admin ? "#000" : "#fff";
+          const sender = msg.is_from_admin ? "Wilscom Support" : "You";
+
+          content.innerHTML += `<p style="text-align:${alignment}; margin-bottom:10px; background:${bgColor}; color:${textColor}; padding:8px; border-radius:5px;"><b>${sender}:</b> ${msg.message_body}</p>`;
+        });
+
+        content.scrollTop = content.scrollHeight;
+      }
+
+      async function clearAllConversations() {
+        if (!supabaseClient) {
+          alert("Supabase not initialized.");
+          return;
+        }
+
+        const password = prompt(
+          "Enter admin password to clear all conversations:",
+        );
+        if (!password) return;
+
+        if (password !== "admin123") {
+          alert("Incorrect admin password.");
+          return;
+        }
+
+        const confirmed = confirm(
+          "Are you sure you want to delete ALL conversations? This cannot be undone.",
+        );
+        if (!confirmed) return;
+
+        try {
+          const { error } = await supabaseClient
+            .from("messages")
+            .delete()
+            .neq("id", 0); // Delete all rows
+
+          if (error) {
+            console.error("Error clearing conversations:", error.message);
+            alert("Error clearing conversations: " + error.message);
+          } else {
+            alert("All conversations cleared successfully!");
+            clearChat(); // Clear the UI
+          }
+        } catch (error) {
+          console.error("Clear conversations error:", error);
+          alert("Error clearing conversations.");
         }
       }
 
       // Initialize OpenStreetMap with Wilscom Custom Icon Markers
-      document.addEventListener("DOMContentLoaded", function () {
-        var map = L.map("map").setView([6.3106, -10.8047], 12);
+      document.addEventListener("DOMContentLoaded", async function () {
+        try {
+          // Verify Leaflet is loaded
+          if (typeof L === "undefined") {
+            console.error("Leaflet library is not loaded");
+            return;
+          }
 
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          maxZoom: 19,
-          attribution: "© OpenStreetMap contributors",
-        }).addTo(map);
+          // Verify map container exists
+          const mapContainer = document.getElementById("map");
+          if (!mapContainer) {
+            console.error("Map container not found");
+            return;
+          }
 
-        // Custom Icon Configuration
-        var wilscomIcon = L.icon({
-          iconUrl: "./Images/WhatsApp Image 2026-03-18 at 12.08.15.jpeg",
-          iconSize: [40, 40],
-          iconAnchor: [20, 40],
-          popupAnchor: [0, -40],
-        });
+          var map = L.map("map").setView([6.3106, -10.8047], 12);
 
-        var locations = [
-          { lat: 6.2907, lng: -10.7816, t: "Operational HQ - Sinkor" },
-          { lat: 6.27, lng: -10.7, t: "Client Zone A - Paynesville" },
-          { lat: 6.34, lng: -10.8, t: "Industrial Site - Bushrod" },
-          { lat: 6.3, lng: -10.75, t: "Commercial Hub - Monrovia" },
+          // Create feature group for markers so we can easily clear and reload
+          mapMarkerGroup = L.featureGroup().addTo(map);
+
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution: "",
+          }).addTo(map);
+
+          // Custom Icon Configuration
+          var wilscomIcon = L.icon({
+            iconUrl:
+              "https://res.cloudinary.com/dqfcitcay/image/upload/v1775049400/WhatsApp_Image_2026-03-18_at_12.08.15_czqhvm.jpg",
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+            popupAnchor: [0, -40],
+          });
+
+          // Store map and icon globally for refresh functionality
+          currentMap = map;
+          currentIcon = wilscomIcon;
+
+          await loadLocationMarkers(map, wilscomIcon);
+
+          console.log("Map initialized successfully");
+        } catch (error) {
+          console.error("Error initializing map:", error);
+        }
+      });
+
+      // Supabase Configuration
+      let supabaseClient = null;
+      let currentMap = null;
+      let currentIcon = null;
+      let mapMarkerGroup = null;
+
+      // Initialize Supabase when ready
+      if (typeof window.supabase !== "undefined") {
+        try {
+          const supabaseUrl = "https://epaloahgcrwuvohpekgj.supabase.co";
+          const supabaseKey =
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwYWxvYWhnY3J3dXZvaHBla2dqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NDM0NjgsImV4cCI6MjA5MTMxOTQ2OH0.Qz37GoUKTlLE1CfeyXded11fnYwPjJ5IdtXJDRzhq6U";
+
+          supabaseClient = window.supabase.createClient(
+            supabaseUrl,
+            supabaseKey,
+            {
+              auth: {
+                persistSession: false,
+                autoRefreshToken: false,
+                detectSessionInUrl: false,
+              },
+            },
+          );
+          console.log("Supabase initialized successfully");
+        } catch (error) {
+          console.error("Error initializing Supabase:", error);
+        }
+      } else {
+        console.warn("Supabase library not loaded");
+      }
+
+      async function loadLocationMarkers(map, icon) {
+        if (!supabaseClient) {
+          console.warn(
+            "Supabase client not initialized; showing default markers.",
+          );
+          addDefaultMarkers(map, icon);
+          return;
+        }
+
+        try {
+          const { data, error } = await supabaseClient
+            .from("locations")
+            .select("latitude,longitude,title,status");
+
+          if (error) {
+            console.error("Failed to fetch locations:", error.message);
+            addDefaultMarkers(map, icon);
+            return;
+          }
+
+          if (!data || data.length === 0) {
+            console.warn(
+              "No locations found in Supabase; using default markers.",
+            );
+            addDefaultMarkers(map, icon);
+            return;
+          }
+
+          data.forEach((row) => {
+            if (row.latitude == null || row.longitude == null) return;
+            const popup = `<strong>${row.title || "Location"}</strong>${row.status ? `<br>Status: ${row.status}` : ""}`;
+            L.marker([row.latitude, row.longitude], { icon })
+              .addTo(mapMarkerGroup)
+              .bindPopup(popup);
+          });
+        } catch (error) {
+          console.error("Error loading location markers:", error);
+          addDefaultMarkers(map, icon);
+        }
+      }
+
+      function addDefaultMarkers(map, icon) {
+        const fallbackLocations = [
+          // { lat: 6.2907, lng: -10.7816, t: "" },
+          // { lat: 6.27, lng: -10.7, t: "" },
+          // { lat: 6.34, lng: -10.8, t: "" },
+          // { lat: 6.3, lng: -10.75, t: "" },
+          // { lat: 6.32, lng: -10.78, t: "" },
         ];
 
-        locations.forEach(function (loc) {
-          L.marker([loc.lat, loc.lng], { icon: wilscomIcon })
-            .addTo(map)
-            .bindPopup("<b>" + loc.t + "</b><br>Secured by Wilscom.");
+        fallbackLocations.forEach((loc) => {
+          L.marker([loc.lat, loc.lng], { icon })
+            .addTo(mapMarkerGroup)
+            .bindPopup(`<b>${loc.t}</b><br>Secured by Wilscom.`);
         });
+      }
+
+      async function refreshMapMarkers() {
+        if (!currentMap || !currentIcon || !mapMarkerGroup) {
+          console.error("Map not fully initialized");
+          return;
+        }
+
+        // Clear existing markers
+        mapMarkerGroup.clearLayers();
+
+        // Reload markers
+        await loadLocationMarkers(currentMap, currentIcon);
+        console.log("Map markers refreshed");
+      }
+
+      // Load jobs on page load
+      document.addEventListener("DOMContentLoaded", async () => {
+        await loadJobs();
       });
+
+      async function loadJobs() {
+        if (!supabaseClient) {
+          console.warn("Supabase client not initialized; showing no jobs.");
+          document.getElementById("jobs-list").innerHTML =
+            "<p>No job listings available.</p>";
+          return;
+        }
+
+        try {
+          const { data, error } = await supabaseClient
+            .from("jobs")
+            .select("title, description, location, posted_at")
+            .order("posted_at", { ascending: false });
+
+          if (error) {
+            console.error("Failed to fetch jobs:", error.message);
+            document.getElementById("jobs-list").innerHTML =
+              "<p>Error loading jobs.</p>";
+            return;
+          }
+
+          if (!data || data.length === 0) {
+            document.getElementById("jobs-list").innerHTML =
+              "<p>No job vacancies at this time.</p>";
+            return;
+          }
+
+          const jobsHtml = data
+            .map(
+              (job) => `
+                  <div class="card" style="margin-bottom: 20px;">
+                    <h3>${job.title}</h3>
+                    <p><strong>Location:</strong> ${job.location || "Not specified"}</p>
+                    <p>${job.description}</p>
+                    <p><small>Posted: ${new Date(job.posted_at).toLocaleDateString()}</small></p>
+                  </div>
+                `,
+            )
+            .join("");
+
+          document.getElementById("jobs-list").innerHTML = jobsHtml;
+        } catch (error) {
+          console.error("Error loading jobs:", error);
+          document.getElementById("jobs-list").innerHTML =
+            "<p>Error loading jobs.</p>";
+        }
+      }
+
+      async function refreshJobs() {
+        await loadJobs();
+        console.log("Jobs refreshed");
+      }
+
+      async function testConnection() {
+        if (!supabaseClient) {
+          console.error("Supabase client is not initialized");
+          return;
+        }
+
+        try {
+          const { data, error } = await supabaseClient
+            .from("messages")
+            .insert([
+              {
+                user_name: "Test User",
+                message_body: "Testing again!",
+                is_from_admin: false,
+              },
+            ])
+            .select();
+
+          if (error) {
+            console.error("Error:", error.message);
+          } else {
+            console.log("Success! Check your dashboard now:", data);
+          }
+        } catch (error) {
+          console.error("Connection test error:", error);
+        }
+      }
+
+      async function pushData() {
+        if (!supabaseClient) {
+          console.error("Supabase client is not initialized");
+          return;
+        }
+
+        try {
+          const { data, error } = await supabaseClient
+            .from("messages")
+            .insert([
+              {
+                user_name: "Final Test",
+                message_body: "Check the dashboard now!",
+              },
+            ])
+            .select();
+
+          if (error) {
+            console.error("Insert failed:", error.message);
+          } else {
+            console.log("Insert worked! Data:", data);
+          }
+        } catch (error) {
+          console.error("pushData error:", error);
+        }
+      }
+
+      // Uncomment the line below to test data insertion
+      // pushData();
+
+      async function saveMapMarker() {
+        if (!supabaseClient) {
+          console.error("Supabase client is not initialized");
+          return;
+        }
+
+        const { data, error } = await supabaseClient
+          .from("locations")
+          .insert([
+            {
+              latitude: 6.3156,
+              longitude: -10.8074,
+              title: "Project Location",
+              status: "active",
+            },
+          ])
+          .select();
+
+        if (error) {
+          console.error("Map Error:", error.message);
+        } else {
+          console.log("Marker saved to Supabase:", data);
+        }
+      }
+
+      // map javascript code here
+      async function getMapData() {
+        const { data, error } = await _supabase.from("locations").select("*");
+
+        if (data) {
+          data.forEach((loc) => {
+            // loc.latitude and loc.longitude must match the SQL names!
+            L.marker([loc.latitude, loc.longitude])
+              .addTo(map)
+              .bindPopup(`<b>${loc.name}</b><br>${loc.description}`);
+          });
+        }
+      }
+
+      async function loadMarkers() {
+        const { data, error } = await _supabase.from("locations").select("*");
+
+        if (error) {
+          console.error(error);
+          return;
+        }
+
+        // Use data while it's still "alive" inside this function
+        if (data) {
+          data.forEach((loc) => {
+            L.marker([loc.latitude, loc.longitude]).addTo(map);
+          });
+        }
+      }
     </script>
   </body>
 </html>
