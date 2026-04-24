@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wilscom Security Service | Justice For All</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1774883744/WhatsApp_Image_2026-03-18_at_12.08.15_clizoi.jpg"
+            alt="Wilscom Logo"
+          />
+          <span>Wilscom Security Service</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about-us">About Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#job-vacancies">Job Vacancies</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger" onclick="toggleMobileNav()">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <section
+      id="home"
+      class="hero"
+      style="
+        background: url(&quot;https://res.cloudinary.com/dqfcitcay/image/upload/v1774883763/wils5_rermc7.jpg&quot;)
+          center/cover no-repeat;
+      "
+    >
+      <div class="hero-content">
+        <p>Vigilance | Elite Protection | Justice For All</p>
+        <br />
+        <a href="#contact" class="btn">Book Security Consultation</a>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Expert Protection</h2>
+      <div class="grid">
+        <div class="card">
+          <i class="fas fa-shield-alt fa-3x"></i>
+          <h3>Armed Response</h3>
+          <p>Elite tactical units available 24/7 for rapid intervention.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-dog fa-3x"></i>
+          <h3>K9 Patrols</h3>
+          <p>
+            Highly trained canine units for superior tracking and detection.
+          </p>
+        </div>
+        <div class="card">
+          <i class="fas fa-video fa-3x"></i>
+          <h3>Remote CCTV</h3>
+          <p>Live monitoring of your assets from our state-of-the-art HQ.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-us">
+      <h2>Who We Are</h2>
+
+      <div class="about-content">
+        <div class="about-grid">
+          <div class="about-text">
+            <h3><i class="fas fa-history"></i> Establishment & Foundation</h3>
+            <p>
+              Founded on a bedrock of integrity and unwavering vigilance,
+              <strong>Wilscom Security Service</strong> was established to
+              bridge the gap between traditional guarding and modern safety
+              needs. Our foundation is built upon decades of combined tactical
+              experience and a deep understanding of the evolving threat
+              landscape.
+            </p>
+          </div>
+          <div class="about-image">
+            <img
+              src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775049401/wil13_whbb4u.jpg"
+              alt="Professional Foundation"
+              style="
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 10px 10px 0 var(--navy);
+              "
+            />
+          </div>
+        </div>
+
+        <div class="pillars-grid">
+          <div class="pillar-item">
+            <i class="fas fa-bullseye fa-2x"></i>
+            <h4>Our Mission</h4>
+            <p>
+              To provide uncompromising protection through elite personnel and
+              superior technology.
+            </p>
+          </div>
+          <div class="pillar-item">
+            <i class="fas fa-eye fa-2x"></i>
+            <h4>Our Vision</h4>
+            <p>
+              To be the global benchmark for integrated security and "Justice
+              For All."
+            </p>
+          </div>
+          <div class="pillar-item">
+            <i class="fas fa-handshake fa-2x"></i>
+            <h4>Our Promise</h4>
+            <p>
+              We remain vigilant 24/7, ensuring your peace of mind is never
+              compromised.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-grid" style="margin-top: 50px">
+          <div class="about-box">
+            <h3><i class="fas fa-star"></i> Core Values</h3>
+            <ul style="list-style: none; padding-left: 0">
+              <li>
+                <strong>Integrity:</strong> Honesty in every patrol and report.
+              </li>
+              <li>
+                <strong>Vigilance:</strong> Constant alertness in a changing
+                world.
+              </li>
+              <li>
+                <strong>Innovation:</strong> Adapting to new threats with new
+                tools.
+              </li>
+              <li>
+                <strong>Accountability:</strong> Taking ownership of our
+                clients' safety.
+              </li>
+            </ul>
+          </div>
+          <div class="about-box">
+            <h3><i class="fas fa-trophy"></i> National Recognition</h3>
+            <p>
+              Wilscom has been consistently recognized as a leader in private
+              security, earning accolades for operational excellence and
+              community safety initiatives on a national scale.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <h3><i class="fas fa-microchip"></i> Technology Integration</h3>
+            <p>
+              We leverage AI-driven surveillance, biometric access control, and
+              real-time GPS tracking to ensure our ground teams are always one
+              step ahead. Our infrastructure is designed for high-speed response
+              and data-backed security planning.
+            </p>
+          </div>
+          <div class="about-box" style="background: var(--dark); color: white">
+            <h3 style="color: var(--gold)">
+              <i class="fas fa-user-secret"></i> Cyber Security Division
+            </h3>
+            <p>
+              Recognizing that threats are no longer just physical, our
+              specialized Cyber Division protects your digital assets, provides
+              network monitoring, and prevents data breaches for corporate
+              clients.
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px">
+          <h3><i class="fas fa-map-marked-alt"></i> Regional Expansion</h3>
+          <p>
+            What started as a local operation has expanded into a multi-regional
+            force, with strategic hubs positioned to provide rapid response
+            across the entire territory.
+          </p>
+
+          <div style="margin-top: 30px">
+            <h4>Certifications & Accreditations</h4>
+            <div class="cert-badge">ISO 9001:2015</div>
+            <div class="cert-badge">Certified K9 Division</div>
+            <div class="cert-badge">PSRA Licensed</div>
+            <div class="cert-badge">Cyber-Essentials Certified</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- new section -->
+    <!-- new section -->
+    <section id="gallery" style="background: var(--light-gray)">
+      <h2>Operations Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1774883747/wils1_fondbe.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1774883751/wils4_hs0xzc.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1774883760/wils6_dmjobj.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1774883745/wils2_iz5hwj.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1774883763/wils5_rermc7.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775049403/wils3_qi3if8.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775049402/wil10_k9wctc.jpg"
+          />
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775050730/wil16_quzkpr.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032218/337e5b2e-c39a-4a39-8d35-28c2024a9699_jgoq4u.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032219/940dd265-7629-4ed2-bc22-0e825442c98c_fzpkfs.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032218/00772602-749b-44ab-943d-e5031ad3ecb3_zpa5dl.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032223/326be407-d8a2-4e03-88b0-7a096c94f0a3_yhgtut.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032223/8c026bbc-6d53-4e84-87bb-6b88d5ae8d6a_hvjxr0.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032236/cfa99efa-21ef-466c-a5cb-f7f7a15c3aa4_pfqmzf.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032236/ac61725c-bc25-46a4-a763-f25c47a4221b_sxohse.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032236/133b9c41-68ae-47f9-82dd-a11ac4c727ba_bs4yaz.jpg"
+          />
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032239/62b4176b-d5b2-47b9-940b-5f0791d66a8e_x2etic.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032241/3786c625-6e7c-4096-a80c-5869522c19bf_cpq9wc.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032245/0c13e75d-e151-4172-b418-fdd6cb4e3bd0_c6ankq.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032246/57acf722-8bef-4870-bad2-3993bbc5a9be_mktafh.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032255/5dc32cb8-3a88-43ce-81f1-e555d25f573d_kvxk77.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032259/8504cc81-681e-44ea-8b98-9f5e3d3ad045_joqtc6.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032259/1842532c-9d6a-47cc-83f1-f315728d1b7f_wkon3z.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032263/e009bddb-a638-4432-b8ce-a2a849a31bac_lnsxuc.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032265/5c169f2f-6b1b-4333-96c0-1bf73978c052_azad9j.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032235/a11c0be3-3949-43b5-852d-47e3ea46742b_t4skmt.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032232/7df05c32-4af5-4703-a407-b705cbd98c6c_lgacea.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032232/b60fd8f5-248e-4be4-b8f8-1483e29fa9f0_ymiwx0.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032228/e7c2655b-61d9-44de-8e67-fcf71bf577a0_rqc4np.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032223/344df8bf-46e5-4770-8019-ed68e353f7f1_piguk4.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032225/20ba2a47-3e11-45ec-bfc1-f76898325db7_h8pqrg.jpg"
+          />
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032221/65e1bb24-20c3-4aab-8568-9b98d502b431_jn1ian.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032221/ce8d8384-0354-4371-9944-39dd07500d06_rrihs6.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032222/461716e5-4ad5-4f62-9df3-95091e7a3daa_njwipy.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032220/fed2d33c-b8fd-4306-a988-bb002a84062b_n6jnyf.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032220/cfd48b18-e91b-43bb-b4e4-aba67f3e1795_apj4ot.jpg"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1777032236/cfa99efa-21ef-466c-a5cb-f7f7a15c3aa4_pfqmzf.jpg"
+          />
+        </div>
+      </div>
+
+      <!-- VIDEO GALLERY -->
+      <h3
+        style="
+          margin-top: 60px;
+          margin-bottom: 10px;
+          font-size: 1.6rem;
+          color: var(--navy);
+        "
+      >
+        <i class="fas fa-video" style="color: var(--gold)"></i> Field Operations
+        Videos
+      </h3>
+      <p style="margin-bottom: 25px; color: #555">
+        A glimpse into Wilscom's operations on the ground.
+      </p>
+      <div class="video-grid">
+        <div class="video-item">
+          <video controls playsinline preload="metadata">
+            <source
+              src="https://res.cloudinary.com/dqfcitcay/video/upload/v1777032390/81882ceb-f287-4f34-93d6-205fe6f8d893_fzxkye.mov"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
+        <div class="video-item">
+          <video controls playsinline preload="metadata">
+            <source
+              src="https://res.cloudinary.com/dqfcitcay/video/upload/v1777032319/615735bf-c141-406a-b381-4849cc896fde_mvlpm0.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
+        <div class="video-item">
+          <video controls playsinline preload="metadata">
+            <source
+              src="https://res.cloudinary.com/dqfcitcay/video/upload/v1777032298/902a1b0b-0f41-46f2-a2cf-f746d38b81af_oa1shg.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
+        <div class="video-item">
+          <video controls playsinline preload="metadata">
+            <source
+              src="https://res.cloudinary.com/dqfcitcay/video/upload/v1777032286/767d1545-240b-4760-8b04-b2c3e750e312_dzbzy2.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <h2>Meet Our Personnel</h2>
+      <div class="team-grid">
+        <div class="member">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775487551/8398b0c2-c411-4a46-b4cc-206e2359c813_wdapts.jpg"
+          />
+          <div class="member-info">
+            <h3>Gyude Wilson</h3>
+            <p>CEO</p>
+          </div>
+        </div>
+        <div class="member">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775474698/d6a358d6-3fe4-41e5-8082-40dcb21534a3_kokwpx.jpg"
+          />
+          <div class="member-info">
+            <h3>Nelly G. Steven</h3>
+            <p>Director</p>
+          </div>
+        </div>
+        <div class="member">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775474697/b28e2d5c-941d-4d3e-b801-78e531f84d22_t77cwb.jpg"
+          />
+          <div class="member-info">
+            <h3>Alvin F. Blamo</h3>
+            <p>Operation Manager</p>
+          </div>
+        </div>
+        <div class="member">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775487399/9053e632-68e0-4f8b-872f-0cd23cbd82c6_zvi9yk.jpg"
+          />
+          <div class="member-info">
+            <h3>Marjean D. Eddie</h3>
+            <p>Administrative Manager</p>
+          </div>
+        </div>
+        <div class="member">
+          <img
+            src="https://res.cloudinary.com/dqfcitcay/image/upload/v1775487398/8a5e9e39-e971-4a83-87f6-9a9f750dba9e_bsxksc.jpg"
+          />
+          <div class="member-info">
+            <h3>Fanta Kaba</h3>
+            <p>Operation Supervisor</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="map-section" style="background: var(--light-gray)">
+      <h2>Strategic Presence</h2>
+      <p>
+        Locate our secure client zones and operational hubs across the region.
+      </p>
+      <div id="map"></div>
+      <div style="text-align: center; margin-top: 20px">
+        <button
+          class="btn"
+          onclick="refreshMapMarkers()"
+          style="background: var(--navy); color: var(--white)"
+        >
+          Refresh Locations
+        </button>
+      </div>
+    </section>
+
+    <section id="job-vacancies">
+      <h2>Join Our Team</h2>
+      <p>
+        Explore exciting career opportunities at Wilscom Security Service. We're
+        always looking for dedicated professionals to join our mission of
+        providing top-tier security solutions.
+      </p>
+      <div id="jobs-list" style="margin-top: 30px">
+        <!-- Jobs will be loaded here -->
+      </div>
+      <div style="text-align: center; margin-top: 30px">
+        <button
+          class="btn"
+          onclick="refreshJobs()"
+          style="background: var(--navy); color: var(--white)"
+        >
+          Refresh Job Listings
+        </button>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Wilscom</h2>
+      <p>
+        Reach out for security consultation, emergency response, or corporate
+        protection services.
+      </p>
+      <div class="grid" style="gap: 20px; margin-top: 30px">
+        <div class="card">
+          <h3>Phone</h3>
+          <p><a href="tel:+231777367250">+231 (777) 367-250</a></p>
+          <p><a href="tel:+231777367251">+231 (777) 367-251</a></p>
+          <p><a href="tel:+231888333334">+231 (888) 333-334</a></p>
+        </div>
+        <div class="card">
+          <h3>Email</h3>
+          <p>
+            <a
+              href="mailto:>wilscom2015@gmail.com</a>
+          </p>"
+              >wilscom2015@gmail.com</a
+            >
+          </p>
+        </div>
+        <div class="card">
+          <h3>Office</h3>
+          <p>Pagos Island, Congo Town, Monsterrado County, Liberia</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <span class="lightbox-prev" onclick="lightboxNav(-1)">&#8249;</span>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+      <span class="lightbox-next" onclick="lightboxNav(1)">&#8250;</span>
+    </div>
+
+    <footer>
+      <p>
+        © 2026 Wilscom Security Service. All Rights Reserved. <br />
+        Justice For All.
+      </p>
+    </footer>
+  </body>
+</html>
